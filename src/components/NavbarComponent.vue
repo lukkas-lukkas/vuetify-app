@@ -15,7 +15,7 @@
             </v-btn>
         </v-toolbar>
 
-        <v-navigation-drawer v-model="drawer" app class="primary" temporary>
+        <v-navigation-drawer v-model="drawer" app class="primary" temporary width="400">
             <v-list>
                 <v-list-item-group>
                     <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
