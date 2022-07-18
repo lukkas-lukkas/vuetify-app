@@ -15,3 +15,9 @@ export default {
   components: { NavbarComponent },
 };
 </script>
+
+<style>
+#app {
+    background-color: var(--v-background-base) !important;
+}
+</style>

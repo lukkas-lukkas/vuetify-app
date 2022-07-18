@@ -3,8 +3,8 @@
     <h1 class="subheading grey--text">Dashboard</h1>
 
     <v-container fluid class="my-5">
-      <v-card flat>
-        <v-layout row wrap class="grey lighten-4 pa-5">
+      <v-card flat class="pa-5">
+        <v-layout row wrap class="pa-5">
           <v-flex xs12 md6>
             <div class="caption grey--text">Project title</div>
             <div>Manage the Scranton branch</div>
