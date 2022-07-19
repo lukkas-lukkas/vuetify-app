@@ -4,18 +4,37 @@
 
     <v-container class="my-5">
       <v-layout row justify-start class="mb-3">
-        <v-btn small text color="grey darken-1" @click="sortBy('title')">
-          <v-icon small left>mdi-folder</v-icon>
-          <span class="caption text-lowercase">By project name</span>
-        </v-btn>
-        <v-btn small text color="grey darken-1" @click="sortBy('person')">
-          <v-icon small left>mdi-account</v-icon>
-          <span class="caption text-lowercase">By Person</span>
-        </v-btn>
-        <v-btn small text color="grey darken-1" @click="sortBy('status')">
-          <v-icon small left>mdi-radiobox-marked</v-icon>
-          <span class="caption text-lowercase">By status</span>
-        </v-btn>
+
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn small text color="grey darken-1" @click="sortBy('title')" v-bind="attrs" v-on="on">
+              <v-icon small left>mdi-folder</v-icon>
+              <span class="caption text-lowercase">By project name</span>
+            </v-btn>
+          </template>          
+          <span>Sort by project name</span>
+        </v-tooltip>
+
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn small text color="grey darken-1" @click="sortBy('person')" v-bind="attrs" v-on="on">
+              <v-icon small left>mdi-account</v-icon>
+              <span class="caption text-lowercase">By Person</span>
+            </v-btn>
+          </template>
+          <span>Sort by project person</span>
+        </v-tooltip>
+
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn small text color="grey darken-1" @click="sortBy('status')" v-bind="attrs" v-on="on">
+              <v-icon small left>mdi-radiobox-marked</v-icon>
+              <span class="caption text-lowercase">By status</span>
+            </v-btn>
+          </template>
+          <span>Sort by project status</span>
+        </v-tooltip>
+        
       </v-layout>
 
       <v-card flat class="pa-5 mb-3" v-for="project in projects" :key="project.title">
