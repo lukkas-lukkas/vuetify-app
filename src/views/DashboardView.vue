@@ -3,6 +3,21 @@
     <h1 class="subheading grey--text">Dashboard</h1>
 
     <v-container class="my-5">
+      <v-layout row justify-start class="mb-3">
+        <v-btn small text color="grey darken-1" @click="sortBy('title')">
+          <v-icon small left>mdi-folder</v-icon>
+          <span class="caption text-lowercase">By project name</span>
+        </v-btn>
+        <v-btn small text color="grey darken-1" @click="sortBy('person')">
+          <v-icon small left>mdi-account</v-icon>
+          <span class="caption text-lowercase">By Person</span>
+        </v-btn>
+        <v-btn small text color="grey darken-1" @click="sortBy('status')">
+          <v-icon small left>mdi-radiobox-marked</v-icon>
+          <span class="caption text-lowercase">By status</span>
+        </v-btn>
+      </v-layout>
+
       <v-card flat class="pa-5 mb-3" v-for="project in projects" :key="project.title">
         <v-layout row wrap :class="`pa-5 project ${project.status}`">
           <v-flex xs12 md6>
@@ -53,6 +68,11 @@ export default {
           status: 'ongoing'
         },
       ]
+    }
+  },
+  methods: {
+    sortBy(prop) {
+      this.projects.sort((a,b) => a[prop] < b[prop] ? -1 : 1);
     }
   }
 }
