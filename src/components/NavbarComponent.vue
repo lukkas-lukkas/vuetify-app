@@ -16,6 +16,14 @@
         </v-app-bar>
 
         <v-navigation-drawer v-model="drawer" app class="primary" width="400">
+            <v-layout column align-center>
+                <v-flex class="mt-5">
+                    <v-avatar size="100">
+                        <img class="text-lg-center" src="/images/michael.png">
+                    </v-avatar>
+                    <p class="white--text subheading mt-1">Michael Scott</p>
+                </v-flex>
+            </v-layout>
             <v-list>
                 <v-list-item-group>
                     <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
