@@ -18,8 +18,9 @@
             <div>{{ project.due }}</div>
           </v-flex>
           <v-flex xs4 sm4 md2>
-            <div class="caption grey--text">Status</div>
-            <div>{{ project.status }}</div>
+            <div class="d-flex justify-center">
+              <v-chip small :class="`${project.status} white--text caption my-2`">{{ project.status }}</v-chip>
+            </div>
           </v-flex>
         </v-layout>
       </v-card>
@@ -68,5 +69,17 @@ export default {
 
 .project.ongoing {
   border-left: 4px solid orange;
+}
+
+.v-chip.done {
+  background: #3cd1c2 !important;
+}
+
+.v-chip.pending {
+  background: tomato !important;
+}
+
+.v-chip.ongoing {
+  background: orange !important;
 }
 </style>
