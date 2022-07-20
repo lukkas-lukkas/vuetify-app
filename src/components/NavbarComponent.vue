@@ -6,7 +6,23 @@
                 <span class="font-weight-light">Todo</span>
                 <span>List</span>
             </v-toolbar-title>
+
             <v-spacer></v-spacer>
+
+            <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn color="grey darken-1" text v-bind="attrs" v-on="on">
+                        <v-icon left>mdi-chevron-down</v-icon>
+                        <span>Menu</span>
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item v-for="(link, index) in links" :key="index" router :to="link.route">
+                        <v-list-item-title>{{ link.text }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+
             <v-btn text color="grey darken-1">
                 <span>Sign Out</span>
                 <v-icon right>
@@ -15,7 +31,7 @@
             </v-btn>
         </v-app-bar>
 
-        <v-navigation-drawer v-model="drawer" app class="primary" width="400">
+        <v-navigation-drawer v-model="drawer" app class="primary">
             <v-layout column align-center>
                 <v-flex class="mt-5">
                     <v-avatar size="100">
