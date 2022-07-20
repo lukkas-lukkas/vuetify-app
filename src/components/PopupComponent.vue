@@ -8,13 +8,15 @@
                 <v-toolbar color="primary" dark>Add new project form</v-toolbar>
                 <v-card-text>
                     <v-form class="px-3" ref="form">
-                        <v-text-field v-model="title" label="Title" prepend-icon="mdi-folder" :rules="rules"></v-text-field>
-                        <v-textarea v-model="description" label="Information" prepend-icon="mdi-pencil" :rules="rules"></v-textarea>
+                        <v-text-field v-model="title" label="Title" prepend-icon="mdi-folder" :rules="rules">
+                        </v-text-field>
+                        <v-textarea v-model="description" label="Information" prepend-icon="mdi-pencil" :rules="rules">
+                        </v-textarea>
 
                         <v-menu v-model="menu" :close-on-content-click="false">
                             <template v-slot:activator="{ on, attrs }">
-                                <v-text-field :value="formattedDate" label="Due date" prepend-icon="mdi-calendar" readonly
-                                    v-bind="attrs" v-on="on" :rules="rules"></v-text-field>
+                                <v-text-field :value="formattedDate" label="Due date" prepend-icon="mdi-calendar"
+                                    readonly v-bind="attrs" v-on="on" :rules="rules"></v-text-field>
                             </template>
                             <v-date-picker v-model="dueDate" @change="menu = false"></v-date-picker>
                         </v-menu>
