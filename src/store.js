@@ -49,7 +49,13 @@ export default new Vuex.Store({
                 name: 'Pam Beesly',
                 role: 'Receptionist',
                 avatar: '/images/pam.png'
-            }
+            },
+            {
+                id: 5,
+                name: 'Kevin Malone',
+                role: 'Counter',
+                avatar: '/images/kevin.png'
+            },
         ],
     }
 });
