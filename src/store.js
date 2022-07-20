@@ -57,5 +57,25 @@ export default new Vuex.Store({
                 avatar: '/images/kevin.png'
             },
         ],
+        cards: [
+            {
+                id: 1,
+                projectId: 1,
+                personId: 1,
+                status: 'pending',
+            },
+            {
+                id: 2,
+                projectId: 2,
+                personId: 2,
+                status: 'done',
+            },
+            {
+                id: 3,
+                projectId: 3,
+                personId: 5,
+                status: 'ongoing',
+            },
+        ],
     }
 });
