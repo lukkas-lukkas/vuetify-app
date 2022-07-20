@@ -77,5 +77,11 @@ export default new Vuex.Store({
                 status: 'ongoing',
             },
         ],
-    }
+    },
+    mutations: {
+        addProject(state, project) {
+            project.id = new Date().getTime();
+            state.projects.push(project);
+        }
+    },
 });

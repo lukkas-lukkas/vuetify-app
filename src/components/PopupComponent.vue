@@ -1,5 +1,5 @@
 <template>
-    <v-dialog transition="dialog-bottom-transition" max-width="600">
+    <v-dialog transition="dialog-bottom-transition" max-width="600" v-model="dialog">
         <template v-slot:activator="{ on, attrs }">
             <v-btn color="success" v-bind="attrs" v-on="on">Add new project</v-btn>
         </template>
@@ -23,7 +23,7 @@
                     </v-form>
                 </v-card-text>
                 <v-card-actions class="justify-end pb-5">
-                    <v-btn text @click="submit" class="success mx-0 mt-3">Add project</v-btn>
+                    <v-btn text @click="submit" class="success mx-0 mt-3" :loading="loading">Add project</v-btn>
                 </v-card-actions>
             </v-card>
         </template>
@@ -43,15 +43,26 @@ export default {
             rules: [
                 v => !!v || 'This field is required',
                 v => v.length >= 3 || 'Minimum length is 3 characters'
-            ]
+            ],
+            loading: false,
+            dialog: false,
         }
     },
     methods: {
         submit() {
             if (this.$refs.form.validate()) {
-                console.log('Title', this.title);
-                console.log('Description', this.description);
-                console.log('Due date', this.formattedDate);
+                this.loading = true;
+                setTimeout(() => {
+                    const project = {
+                        title: this.title,
+                        description: this.description,
+                        due: this.formattedDate
+                    };
+                    
+                    this.$store.commit('addProject', project);
+                    this.loading = false;
+                    this.dialog = false;
+                }, "2000")                
             }
         }
     },
