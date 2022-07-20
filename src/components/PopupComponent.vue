@@ -8,10 +8,8 @@
                 <v-toolbar color="primary" dark>Add new project form</v-toolbar>
                 <v-card-text>
                     <v-form class="px-3">
-                        <v-text-field v-model="title" label="Title" prepend-icon="mdi-folder">
-                        </v-text-field>
-                        <v-textarea v-model="description" label="Information" prepend-icon="mdi-pencil">
-                        </v-textarea>
+                        <v-text-field v-model="title" label="Title" prepend-icon="mdi-folder"></v-text-field>
+                        <v-textarea v-model="description" label="Information" prepend-icon="mdi-pencil"></v-textarea>
                     </v-form>
                 </v-card-text>
                 <v-card-actions class="justify-end pb-5">
