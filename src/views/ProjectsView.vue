@@ -20,31 +20,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      projects: [
-        {
-          title: 'Manage the Scranton branch',
-          person: 'Michael Scott',
-          due: '1st Jan 1990',
-          status: 'pending',
-          description: 'Description of the project'
-        },
-        {
-          title: 'Marry with Pam',
-          person: 'Jim Halpert',
-          due: '1st Sep 2009',
-          status: 'done',
-          description: 'Description of the project'
-        },
-        {
-          title: 'Eat pizza',
-          person: 'Kevin Malone',
-          due: '1st Sep 2010',
-          status: 'ongoing',
-          description: 'Description of the project'
-        },
-      ]
+  computed: {
+    projects() {
+      return this.$store.state.projects;
     }
   }
 }
