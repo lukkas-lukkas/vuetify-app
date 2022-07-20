@@ -24,6 +24,32 @@ export default new Vuex.Store({
                 due: '1st Sep 2010',
                 description: 'Description of the project'
             }
-        ]
+        ],
+        team: [
+            {
+                id: 1,
+                name: 'Michael Scott',
+                role: 'Regional Manager',
+                avatar: '/images/michael.png'
+            },
+            {
+                id: 2,
+                name: 'Jim Halpert',
+                role: 'Seller',
+                avatar: '/images/jim.png'
+            },
+            {
+                id: 3,
+                name: 'Dwight Schrute',
+                role: 'Regional assistant manager',
+                avatar: '/images/dwight.png'
+            },
+            {
+                id: 4,
+                name: 'Pam Beesly',
+                role: 'Receptionist',
+                avatar: '/images/pam.png'
+            }
+        ],
     }
 });

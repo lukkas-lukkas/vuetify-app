@@ -30,14 +30,9 @@
 
 <script>
 export default {
-    data() {
-        return {
-            team: [
-                { name: 'Michael Scott', role: 'Regional Manager', avatar: '/images/michael.png'},
-                { name: 'Jim Halpert', role: 'Seller', avatar: '/images/jim.png'},
-                { name: 'Dwight Schrute', role: 'Regional assistant manager', avatar: '/images/dwight.png'},
-                { name: 'Pam Beesly', role: 'Receptionist', avatar: '/images/pam.png'}
-            ]
+    computed: {
+        team() {
+            return this.$store.state.team;
         }
     }
 }

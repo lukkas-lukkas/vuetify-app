@@ -4,7 +4,7 @@
 
     <v-container class="my-5">
       <v-expansion-panels>
-        <v-expansion-panel v-for="project in projects" :key="project.title">
+        <v-expansion-panel v-for="project in projects" :key="project.id">
           <v-expansion-panel-header>
             {{ project.title }}
           </v-expansion-panel-header>
