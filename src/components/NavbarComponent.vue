@@ -39,6 +39,11 @@
                     </v-avatar>
                     <p class="white--text subheading mt-1">Michael Scott</p>
                 </v-flex>
+
+                <v-flex class="mt-4 mb-3">
+                    <PopupComponent />
+                </v-flex>
+
             </v-layout>
             <v-list>
                 <v-list-item-group>
@@ -57,16 +62,19 @@
 </template>
 
 <script>
+import PopupComponent from './PopupComponent.vue';
+
 export default {
     data() {
         return {
             drawer: false,
             links: [
-                { icon: 'mdi-view-dashboard', text: 'Dashboard', route: '/' },
-                { icon: 'mdi-folder', text: 'My Projects', route: '/projects' },
-                { icon: 'mdi-account-circle', text: 'Team', route: '/team' },
+                { icon: "mdi-view-dashboard", text: "Dashboard", route: "/" },
+                { icon: "mdi-folder", text: "My Projects", route: "/projects" },
+                { icon: "mdi-account-circle", text: "Team", route: "/team" },
             ]
-        }
-    }
+        };
+    },
+    components: { PopupComponent }
 }
 </script>
