@@ -58,10 +58,11 @@ export default {
                         description: this.description,
                         due: this.formattedDate
                     };
-                    
+
                     this.$store.commit('addProject', project);
                     this.loading = false;
                     this.dialog = false;
+                    this.$emit('cardAddedEvent');
                 }, "2000")                
             }
         }

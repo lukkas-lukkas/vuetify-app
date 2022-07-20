@@ -1,5 +1,9 @@
 <template>
     <nav>
+        <v-snackbar top color="green" v-model="snackbar" :timeout="2000">
+            Project created success
+        </v-snackbar>
+        
         <v-app-bar flat app>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title class="text-uppercase grey--text">
@@ -41,7 +45,7 @@
                 </v-flex>
 
                 <v-flex class="mt-4 mb-3">
-                    <PopupComponent />
+                    <PopupComponent @cardAddedEvent="snackbar = true" />
                 </v-flex>
 
             </v-layout>
@@ -72,7 +76,8 @@ export default {
                 { icon: "mdi-view-dashboard", text: "Dashboard", route: "/" },
                 { icon: "mdi-folder", text: "My Projects", route: "/projects" },
                 { icon: "mdi-account-circle", text: "Team", route: "/team" },
-            ]
+            ],
+            snackbar: false,
         };
     },
     components: { PopupComponent }
