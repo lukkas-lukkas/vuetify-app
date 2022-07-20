@@ -10,6 +10,14 @@
                     <v-form class="px-3">
                         <v-text-field v-model="title" label="Title" prepend-icon="mdi-folder"></v-text-field>
                         <v-textarea v-model="description" label="Information" prepend-icon="mdi-pencil"></v-textarea>
+
+                        <v-menu v-model="menu" :close-on-content-click="false">
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-text-field :value="formattedDate" label="Due date" prepend-icon="mdi-calendar" readonly
+                                    v-bind="attrs" v-on="on"></v-text-field>
+                            </template>
+                            <v-date-picker v-model="dueDate" @change="menu = false"></v-date-picker>
+                        </v-menu>
                     </v-form>
                 </v-card-text>
                 <v-card-actions class="justify-end pb-5">
@@ -21,17 +29,26 @@
 </template>
 
 <script>
+import { format, parseISO } from 'date-fns';
+
 export default {
     data() {
         return {
             title: '',
-            description: ''
+            description: '',
+            dueDate: null,
+            menu: false,
         }
     },
     methods: {
         submit() {
             console.log('Title', this.title);
             console.log('Description', this.description);
+        }
+    },
+    computed: {
+        formattedDate() {
+            return this.dueDate ? format(parseISO(this.dueDate), 'do MMM yyyy') : '';
         }
     }
 }
